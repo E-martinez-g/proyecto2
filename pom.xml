@@ -5,18 +5,16 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>mx.unam.ciencias.edd</groupId>
-  <artifactId>practica</artifactId>
+  <artifactId>proyecto</artifactId>
   <version>EDD</version>
   <packaging>jar</packaging>
 
-  <name>Práctica 4</name>
+  <name>Proyecto 2</name>
   <description>
-    Práctica 4 de Estructuras de Datos: Árboles rojinegros.
+    Proyecto 2 de Estructuras de Datos: Emparejador de palabras.
   </description>
-  <url>https://aztlan.fciencias.unam.mx/gitlab/2026-1-edd/practica4</url>
   <organization>
-    <name>Canek Peláez Valdés</name>
-    <url>https://aztlan.fciencias.unam.mx/~canek/</url>
+    <name>Emilio Martínez García</name>
   </organization>
 
   <properties>
@@ -69,7 +67,7 @@
 	<configuration>
 	  <archive>
 	    <manifest>
-	      <mainClass>mx.unam.ciencias.edd.Practica4</mainClass>
+	      <mainClass>mx.unam.ciencias.edd.proyecto2.Proyecto2</mainClass>
 	    </manifest>
 	  </archive>
 	</configuration>
@@ -89,7 +87,7 @@
 
     </plugins>
 
-    <finalName>practica4</finalName>
+    <finalName>proyecto2</finalName>
   </build>
 
   <reporting>
