@@ -8,13 +8,13 @@ import mx.unam.ciencias.edd.proyecto2.ExcepcionPalabraNoCoincide;
 public class LineaAsociada implements Comparable<LineaAsociada> {
 
     /** La palabra que encontramos en la cadena */
-    String palabra;
+    private String palabra;
 
     /** El índice del primer símbolo de la palabra dentro de la cadena */
-    int indiceInicial;
+    private int indiceInicial;
 
     /** La cadena original con la palabra buscada resaltada */
-    String cadena;
+    private String cadena;
 
     /**
      * Constructor que recibe la palabra que se encontró, la cadena en que
