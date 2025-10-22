@@ -28,9 +28,10 @@ public class Bloque {
      * Agrega una cadena al árbol interno.
      * @param linea la linea a agregar.
      */
-    public void agrega(LineaAsociada linea) {
+    public void agrega(LineaAsociada linea) throws ExcepcionPalabraNoCoincide {
 	if (!palabra.equals(linea.getPalabra()))
-	    throw new ExcepcionPalabraNoCoincide();
+	    throw new ExcepcionPalabraNoCoincide("Se intentó agregar al " +
+						 "bloque incorrecto");
 	arbol.agrega(linea);
     }
 
