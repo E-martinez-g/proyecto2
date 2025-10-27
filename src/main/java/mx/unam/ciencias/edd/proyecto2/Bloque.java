@@ -43,6 +43,6 @@ public class Bloque {
 	String s = "";
 	for (LineaAsociada la : arbol)
 	    s += la.getCadena() + "\n";
-	s += "...\n";
+	return s;
     }
 }
