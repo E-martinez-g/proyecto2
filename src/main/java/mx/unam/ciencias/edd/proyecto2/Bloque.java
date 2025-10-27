@@ -25,6 +25,14 @@ public class Bloque {
     }
 
     /**
+     * Regresa la palabra asociada al bloque.
+     * @return la palabra asociada al bloque.
+     */
+    public String getPalabra() {
+	return palabra;
+    }
+
+    /**
      * Agrega una cadena al árbol interno.
      * @param linea la linea a agregar.
      */
