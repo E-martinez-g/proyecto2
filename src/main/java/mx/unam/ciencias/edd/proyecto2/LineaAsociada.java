@@ -20,25 +20,27 @@ public class LineaAsociada implements Comparable<LineaAsociada> {
      * Constructor que recibe la palabra que se encontró, la cadena en que
      * se encontró y el índice en que esta palabra empieza dentro de la cadena.
      * @param palabra la palabra encontrada.
-     * @param indiceInicial el índice en que la palabra comienza dentro de la
-     *        cadena.
+     * @param instInterna la instancia de la palabra encontrada dentro de la
+	 *        cadena, puede ser diferente a palabra por signos de puntuación
+	 *        o diacríticos.
      * @param cadena la cadena en que se encontró la palabra.
      */
-    public LineaAsociada(String palabra, int indiceInicial, String cadena) {
+    public LineaAsociada(String palabra, String instInterna, String cadena) {
 	this.palabra = palabra;
-	this.indiceInicial = indiceInicial;
-	this.cadena = resalta(cadena);
+	this.indiceInicial = cadena.indexOf(instInterna);
+	this.cadena = resalta(cadena, instInterna.length());
     }
 
     /**
      * Resalta en la cadena la palabra encontrada (La colorea de azul).
      * @param cadena la cadena en la que va a resaltar la palabra.
+	 * @param subLength la longitud de la subcadena a resaltar.
      * @return la cadena recibida con la palabra resaltada.
      */
-    private String resalta(String cadena) {
+    private String resalta(String cadena, int subLength) {
 	String s = cadena.substring(0, indiceInicial - 1) + "\u001B[34m";
-	s += cadena.substring(indiceInicial, indiceInicial + palabra.length() -1);
-	s += "\u001B[0m" + cadena.substring(indiceInicial + palabra.length());
+	s += cadena.substring(indiceInicial, indiceInicial + subLength -1);
+	s += "\u001B[0m" + cadena.substring(indiceInicial + subLength);
 	return s;
     }
 
