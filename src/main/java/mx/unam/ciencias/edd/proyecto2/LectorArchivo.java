@@ -9,7 +9,7 @@ import mx.unam.ciencias.edd.Lista;
 /**
  * Clase para leer de archivos.
  */
-public class LectorArchivo {
+public class LectorArchivo extends Lector {
 
     /** La lista de archivos de los que se leerá. */
     private Lista<String> archivos;
@@ -36,9 +36,9 @@ public class LectorArchivo {
     }
 
     /**
-     * Regresa una línea de la entrada elegida o <code>null</code> si ya
+     * Regresa una línea de los archivos recibidos o <code>null</code> si ya
      * no hay qué leer.
-     * @return una línea de la entrada elegida o <code>null</code> si ya
+     * @return una línea de los archivos recibidos o <code>null</code> si ya
      *         no hay qué leer.
      */
     @Override public String lee() {
