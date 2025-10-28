@@ -45,8 +45,7 @@ public class Emparejador{
 	    int i = 0;
 	    for (int e = 0 ; e < sucia.length ; e++) {
 		if (colador.compare(b.getPalabra(), limpia[e]) == 0) {
-		    int iI = i + sucia[e].indexOf(limpia[e].charAt(0));
-		    b.agrega(new LineaAsociada(b.getPalabra(), iI, linea));
+		    b.agrega(new LineaAsociada(b.getPalabra(), sucia[e], linea));
 		    break;
 		}
 	    }
