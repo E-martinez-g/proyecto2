@@ -1,5 +1,7 @@
 package mx.unam.ciencias.edd.proyecto2;
 
+import mx.unam.ciencias.edd.Lista;
+
 /**
  * Clase principal para el proyecto 2.
  */
