@@ -31,5 +31,18 @@ public class Aplicacion {
 	emparejador = new Emparejador(palabras);
 	lector = new LectorArchivo(archivos);
     }
+
+    /**
+     * Ejecuta la aplicación.
+     */
+    public void funciona() {
+	String l;
+	while ((l = lector.lee()) != null) {
+	    emparejador.empareja(l);
+	}
+	for (Bloque b : emparejador.getBloques()) {
+	    System.out.println(b);
+	}
+    }
     
 }

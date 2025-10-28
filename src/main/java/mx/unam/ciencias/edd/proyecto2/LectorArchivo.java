@@ -54,7 +54,13 @@ public class LectorArchivo extends Lector {
 	    if (!archivos.esVacia())
 		break;
 	    actualizaLector(archivos.eliminaPrimero());
-	    String s = lector.readLine();
+	    try {
+		s = lector.readLine();
+	    } catch (IOException ioe) {
+		System.err.println("Ocurrió un error al leer del archivo: " +
+				   archivoActual + ".\n");
+		System.exit(2);
+	    }
 	}
 	return s;
     }
