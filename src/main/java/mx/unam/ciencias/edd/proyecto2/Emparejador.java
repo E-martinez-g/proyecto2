@@ -30,7 +30,7 @@ public class Emparejador{
      * Regresa una copia de la lista de bloques.
      * @return una copia de la lista de bloques.
      */
-    public Lista<String> getBloques() {
+    public Lista<Bloque> getBloques() {
 	return bloques.copia();
     }
 
@@ -48,7 +48,7 @@ public class Emparejador{
 	    for (int e = 0; e < sucia.length - 1; e++) {
 		if (colador.compare(limpia[e], b.getPalabra()) == 0) {
 		    int ini = sucia[e].indexOf(limpia[e].charAt(0));
-		    int fin = limpia[e].length - 1;
+		    int fin = limpia.length - 1;
 		    fin = sucia[e].lastIndexOf(limpia[e].charAt(fin));
 		    if (e != 0)
 			s += " ";

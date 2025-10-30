@@ -21,7 +21,7 @@ public class LectorArchivo extends Lector {
      * Constructor para leer de archivos.
      * @param archivos la lista de archivos de los que se tiene que leer.
      */
-    public LectorArchivos(Lista<String> archivos) {
+    public LectorArchivo(Lista<String> archivos) {
 	archivoActual = archivos.eliminaPrimero();
 	this.archivos = archivos;
 	try {

@@ -9,7 +9,7 @@ import java.io.IOException;
 public abstract class Lector {
  
     /** El {@link BufferedReader} que se conectará a la entrada elegida. */
-    private BufferedReader lector;
+    protected BufferedReader lector;
 
     /**
      * Regresa una línea de la entrada elegida o <code>null</code> si ya

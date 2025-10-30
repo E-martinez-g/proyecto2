@@ -56,7 +56,7 @@ public class ManejadorArgumentos {
 	    else
 		archivos.agrega(s);
 	}
-	if (palabra) {
+	if (palabra)
 	    noHayPalabra();
     }
 

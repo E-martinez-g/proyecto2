@@ -12,7 +12,7 @@ public class LectorEstandar extends Lector {
     /**
      * Constructor para leer de la entrada estándar.
      */
-    public LectorEstandar {
+    public LectorEstandar() {
 	try {
 	    lector = new BufferedReader(
 			 new InputStreamReader(System.in, "utf-8"));
@@ -36,5 +36,6 @@ public class LectorEstandar extends Lector {
 	    System.err.println("\nOcurrió un problema al leer de la entrada estándar.\n");
 	    System.exit(2);
 	}
+	return null;
     }
 }

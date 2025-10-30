@@ -46,7 +46,7 @@ public class LineaAsociada implements Comparable<LineaAsociada> {
 	    throw new ExcepcionPalabraNoCoincide("Se intentaron comparar dos " +
 						 "líneas asociadas con palabras" +
 						 " diferentes");
-	return indiceInicial == la.indiceInicial ? ;
+	return indiceInicial - la.indiceInicial;
     }
 
     /**
