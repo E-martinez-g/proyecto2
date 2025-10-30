@@ -1,6 +1,7 @@
 package mx.unam.ciencias.edd.proyecto2;
 
 import mx.unam.ciencias.edd.proyecto2.ExcepcionPalabraNoCoincide;
+import java.text.Collator;
 
 /**
  * Clase para cadenas que contienen una palabra específica.
@@ -15,6 +16,9 @@ public class LineaAsociada implements Comparable<LineaAsociada> {
 
     /** La cadena original con la palabra buscada resaltada */
     private String cadena;
+
+    /** El colador para comparar cadenas si su {@link indiceInicial} es igual */
+    private static final Collator colador = Proyecto2.getPrimaryCollator();
 
     /**
      * Constructor que recibe la palabra que se encontró, la cadena en que
@@ -46,7 +50,8 @@ public class LineaAsociada implements Comparable<LineaAsociada> {
 	    throw new ExcepcionPalabraNoCoincide("Se intentaron comparar dos " +
 						 "líneas asociadas con palabras" +
 						 " diferentes");
-	return indiceInicial - la.indiceInicial;
+	return indiceInicial == la.indiceInicial ? colador.compare(cadena, la.cadena) :
+	                                           indiceInicial - la.indiceInicial;
     }
 
     /**

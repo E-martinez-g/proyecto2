@@ -12,7 +12,7 @@ public class Emparejador{
     private Lista<Bloque> bloques;
 
     /** El colador para comparar palabras. */
-    private Collator colador;
+    private static final Collator colador = Proyecto2.getPrimaryCollator();
     
     /**
      * Constructor para el emparejador.
@@ -22,8 +22,6 @@ public class Emparejador{
 	bloques = new Lista<Bloque>();
 	for (String palabra : palabras)
 	    bloques.agrega(new Bloque(palabra));
-	colador = Collator.getInstance();
-	colador.setStrength(Collator.PRIMARY);
     }
 
     /**
