@@ -38,7 +38,7 @@ public class Emparejador{
      */
     public void empareja(String linea) {
 	String[] sucia = linea.split(" ");
-	String[] limpia = linea.replaceAll("[\\p{Punct}¿¡]", "").split(" ");
+	String[] limpia = linea.replaceAll("[^\\p{L}\\p{N}\\s]", "").split(" ");
 	for (Bloque b : bloques) {
 	    boolean contienePalabra = false;
 	    int iI = 0;

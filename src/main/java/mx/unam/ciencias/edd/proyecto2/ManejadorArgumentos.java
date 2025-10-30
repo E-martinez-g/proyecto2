@@ -48,7 +48,7 @@ public class ManejadorArgumentos {
 	for (String s : args) {
 	    if (palabra) {
 		palabra = false;
-		if (s == "")
+		if (s.replaceAll("[^\\p{L}\\p{N}\\s]", "").trim() == "")
 		    noHayPalabra();
 		palabras.agrega(s);
 	    } else if (s.equals("-p"))
@@ -65,7 +65,7 @@ public class ManejadorArgumentos {
      * y termina el programa.
      */
     private void noHayPalabra() {
-	System.err.println("\nLa bandera -p debe ser seguida por una palabra.\n");
+	System.err.println("\nLa bandera -p debe ser seguida por una palabra.");
 	System.exit(1);
     }
 }
