@@ -48,6 +48,8 @@ public class ManejadorArgumentos {
 	for (String s : args) {
 	    if (palabra) {
 		palabra = false;
+		if (s == "")
+		    noHayPalabra();
 		palabras.agrega(s);
 	    } else if (s.equals("-p"))
 		palabra = true;
@@ -55,8 +57,15 @@ public class ManejadorArgumentos {
 		archivos.agrega(s);
 	}
 	if (palabra) {
-	    System.err.println("La bandera -p debe ser seguida por una palabra.");
-	    System.exit(1);
-	}
+	    noHayPalabra();
+    }
+
+    /**
+     * Se queja de no haber encontrado una palabra después de la bandera -p
+     * y termina el programa.
+     */
+    private void noHayPalabra() {
+	System.err.println("\nLa bandera -p debe ser seguida por una palabra.\n");
+	System.exit(1);
     }
 }

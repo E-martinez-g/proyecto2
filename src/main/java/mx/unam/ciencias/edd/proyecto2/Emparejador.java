@@ -42,13 +42,36 @@ public class Emparejador{
 	String[] sucia = linea.split(" ");
 	String[] limpia = linea.replaceAll("[\\p{Punct}¿¡]", "").split(" ");
 	for (Bloque b : bloques) {
-	    int i = 0;
-	    for (int e = 0 ; e < sucia.length ; e++) {
-		if (colador.compare(b.getPalabra(), limpia[e]) == 0) {
-		    b.agrega(new LineaAsociada(b.getPalabra(), sucia[e], linea));
-		    break;
+	    boolean contienePalabra = false;
+	    int iI = 0;
+	    String s = "";
+	    for (int e = 0; e < sucia.length - 1; e++) {
+		if (colador.compare(limpia[e], b.getPalabra()) == 0) {
+		    int ini = sucia[e].indexOf(limpia[e].charAt(0));
+		    int fin = limpia[e].length - 1;
+		    fin = sucia[e].lastIndexOf(limpia[e].charAt(fin));
+		    if (e != 0)
+			s += " ";
+		    try {
+			s += sucia[e].substring(0, ini - 1);
+		    } catch (IndexOutOfBoundsException ioobe) {}
+		    s += "\u001B[36m";
+		    s += sucia[e].substring(ini, fin);
+		    s += "\u001B[0m";
+		    try {
+			s += sucia[e].substring(fin + 1);
+		    } catch (IndexOutOfBoundsException ioobe) {}
+		    if (!contienePalabra)
+			iI += ini;
+		    contienePalabra = true;
+		} else {
+		    s += " " + sucia[e];
 		}
+		if (!contienePalabra)
+		    iI += sucia[e].length();
 	    }
+	    if (contienePalabra)
+		b.agrega(new LineaAsociada(b.getPalabra(), s, iI));
 	}
     }
 }

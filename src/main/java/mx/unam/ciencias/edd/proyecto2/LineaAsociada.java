@@ -21,27 +21,14 @@ public class LineaAsociada implements Comparable<LineaAsociada> {
      * se encontró y el índice en que esta palabra empieza dentro de la cadena.
      * @param palabra la palabra encontrada.
      * @param instInterna la instancia de la palabra encontrada dentro de la
-	 *        cadena, puede ser diferente a palabra por signos de puntuación
-	 *        o diacríticos.
+     *        cadena, puede ser diferente a palabra por signos de puntuación
+     *        o diacríticos.
      * @param cadena la cadena en que se encontró la palabra.
      */
-    public LineaAsociada(String palabra, String instInterna, String cadena) {
+    public LineaAsociada(String palabra, String cadena, int indiceInicial) {
 	this.palabra = palabra;
-	this.indiceInicial = cadena.indexOf(instInterna);
-	this.cadena = resalta(cadena, instInterna.length());
-    }
-
-    /**
-     * Resalta en la cadena la palabra encontrada (La colorea de azul).
-     * @param cadena la cadena en la que va a resaltar la palabra.
-	 * @param subLength la longitud de la subcadena a resaltar.
-     * @return la cadena recibida con la palabra resaltada.
-     */
-    private String resalta(String cadena, int subLength) {
-	String s = cadena.substring(0, indiceInicial - 1) + "\u001B[34m";
-	s += cadena.substring(indiceInicial, indiceInicial + subLength -1);
-	s += "\u001B[0m" + cadena.substring(indiceInicial + subLength);
-	return s;
+	this.indiceInicial = indiceInicial;
+	this.cadena = cadena;
     }
 
     /**
@@ -59,7 +46,7 @@ public class LineaAsociada implements Comparable<LineaAsociada> {
 	    throw new ExcepcionPalabraNoCoincide("Se intentaron comparar dos " +
 						 "líneas asociadas con palabras" +
 						 " diferentes");
-	return indiceInicial - la.indiceInicial;
+	return indiceInicial == la.indiceInicial ? ;
     }
 
     /**
