@@ -51,7 +51,7 @@ public class LectorArchivo extends Lector {
 	    System.exit(2);
 	}
 	while (s == null) {
-	    if (!archivos.esVacia())
+	    if (archivos.esVacia())
 		break;
 	    actualizaLector(archivos.eliminaPrimero());
 	    try {

@@ -43,18 +43,18 @@ public class Emparejador{
 	    boolean contienePalabra = false;
 	    int iI = 0;
 	    String s = "";
-	    for (int e = 0; e < sucia.length - 1; e++) {
+	    for (int e = 0; e < limpia.length; e++) {
 		if (colador.compare(limpia[e], b.getPalabra()) == 0) {
 		    int ini = sucia[e].indexOf(limpia[e].charAt(0));
-		    int fin = limpia.length - 1;
-		    fin = sucia[e].lastIndexOf(limpia[e].charAt(fin));
-		    if (e != 0)
+		    int ll = limpia[e].length() - 1;
+		    int fin = sucia[e].lastIndexOf(limpia[e].charAt(ll));
+		    if (e > 0)
 			s += " ";
 		    try {
-			s += sucia[e].substring(0, ini - 1);
+			s += sucia[e].substring(0, ini);
 		    } catch (IndexOutOfBoundsException ioobe) {}
 		    s += "\u001B[36m";
-		    s += sucia[e].substring(ini, fin);
+		    s += sucia[e].substring(ini, fin + 1);
 		    s += "\u001B[0m";
 		    try {
 			s += sucia[e].substring(fin + 1);
@@ -63,7 +63,9 @@ public class Emparejador{
 			iI += ini;
 		    contienePalabra = true;
 		} else {
-		    s += " " + sucia[e];
+		    if (e > 0)
+			s += " ";
+		    s += sucia[e];
 		}
 		if (!contienePalabra)
 		    iI += sucia[e].length();

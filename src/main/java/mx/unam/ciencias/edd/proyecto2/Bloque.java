@@ -48,9 +48,9 @@ public class Bloque {
      * @return la representación en cadena del bloque.
      */
     @Override public String toString() {
-	String s = "";
+	String s = "\u001B[33m" + palabra + ":\u001B[0m\n";
 	for (LineaAsociada la : arbol)
 	    s += la.getCadena() + "\n";
-	return s;
+	return s.substring(0, s.length()-1);
     }
 }
