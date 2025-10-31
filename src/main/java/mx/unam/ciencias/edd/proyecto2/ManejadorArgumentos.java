@@ -13,6 +13,9 @@ public class ManejadorArgumentos {
     /** La lista que contendrá las palabras obtenidas de los argumentos.*/
     private Lista<String> palabras;
 
+    /** El boolean que nos permite saber si la bandera -h fue utilizada. */
+    private boolean ayuda = false;
+    
     /**
      * Constructor del Manejador de argumentos.
      * @param args el arreglo del que se obtendrán los archivos y las palabras.
@@ -40,6 +43,14 @@ public class ManejadorArgumentos {
     }
 
     /**
+     * Regresa si el usuario necesita ayuda.
+     * @return ayuda.
+     */
+    public boolean getAyuda() {
+	return ayuda;
+    }
+
+    /**
      * Obtiene de los argumentos los archivos y las palabras.
      * @param args el arreglo del que se obtendrán los archivos y las palabras.
      */
@@ -53,6 +64,8 @@ public class ManejadorArgumentos {
 		palabras.agrega(s);
 	    } else if (s.equals("-p"))
 		palabra = true;
+	    else if (s.equals("-h"))
+		ayuda = true;
 	    else
 		archivos.agrega(s);
 	}
